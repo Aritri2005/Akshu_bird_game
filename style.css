@@ -31,12 +31,13 @@ body {
 }
 
 .game-card {
-  width: min(100%, 520px);
+  width: min(100%, 600px);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 16px;
   backdrop-filter: blur(5px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .top-bar h1 {
@@ -59,17 +60,20 @@ body {
 
 .score-group {
   flex: 1;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(34, 197, 94, 0.15);
   border-radius: 10px;
-  padding: 10px;
+  padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 6px rgba(34, 197, 94, 0.1);
 }
 
 .score-group strong {
-  color: #f8fafc;
-  font-size: 1.1rem;
+  color: #86efac;
+  font-size: 1.3rem;
+  font-weight: 800;
 }
 
 .canvas-wrap {
@@ -80,14 +84,15 @@ body {
 }
 
 canvas {
-  width: min(100%, 480px);
+  width: 100%;
   height: auto;
-  max-height: 90vh;
-  aspect-ratio: 480 / 900;
+  max-height: 92vh;
+  aspect-ratio: 540 / 1000;
   display: block;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.25);
   background: linear-gradient(to bottom, #60a5fa, #a7f3d0);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
 }
 
 .overlay {
@@ -96,12 +101,13 @@ canvas {
   display: none;
   place-items: center;
   align-content: center;
-  gap: 10px;
+  gap: 20px;
   text-align: center;
   background: rgba(2, 6, 23, 0.6);
   padding: 16px;
   border-radius: 12px;
   z-index: 10;
+  flex-direction: column;
 }
 
 #gameOverOverlay {
@@ -142,10 +148,15 @@ canvas {
 
 .overlay h2 {
   margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  color: #fff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
 .overlay p {
   margin: 0;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: #e5e7eb;
 }
 
 .controls {
@@ -157,15 +168,20 @@ canvas {
 .btn {
   border: none;
   border-radius: 10px;
-  padding: 10px 14px;
+  padding: 12px 24px;
   background: #334155;
   color: #f8fafc;
   cursor: pointer;
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .btn.primary {

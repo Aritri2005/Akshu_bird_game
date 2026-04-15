@@ -54,7 +54,7 @@ function createBird() {
   return {
     x: GAME_WIDTH * 0.28,
     y: GAME_HEIGHT * 0.45,
-    radius: 18,
+    radius: 22,
     velocityY: 0,
     gravity: 0.36,
     jumpPower: -9.5,
@@ -75,8 +75,9 @@ function resetGameState() {
 
 function makePipe() {
   // Difficulty scaling: reduce gap more aggressively as score increases
-  const difficultyFactor = Math.floor(score / 3);
-  const currentGap = Math.max(140, 250 - difficultyFactor * 15);
+  // But start very easy for the first 2 pipes
+  const difficultyFactor = Math.max(0, Math.floor(score / 3) - 1);
+  const currentGap = Math.max(140, 280 - difficultyFactor * 15);
   
   const safeTop = 110;
   const safeBottom = GAME_HEIGHT - GROUND_HEIGHT - 110 - currentGap;
@@ -245,10 +246,16 @@ function drawPipes() {
 }
 
 function drawGround() {
-  ctx.fillStyle = "#854d0e";
+  ctx.fillStyle = "#92400e";
   ctx.fillRect(0, GAME_HEIGHT - GROUND_HEIGHT, GAME_WIDTH, GROUND_HEIGHT);
-  ctx.fillStyle = "#65a30d";
-  ctx.fillRect(0, GAME_HEIGHT - GROUND_HEIGHT, GAME_WIDTH, 14);
+  ctx.fillStyle = "#84cc16";
+  ctx.fillRect(0, GAME_HEIGHT - GROUND_HEIGHT, GAME_WIDTH, 18);
+  
+  // Add some visual detail to ground
+  ctx.fillStyle = "rgba(132, 204, 22, 0.3)";
+  for (let i = 0; i < GAME_WIDTH; i += 40) {
+    ctx.fillRect(i, GAME_HEIGHT - GROUND_HEIGHT + 25, 30, 3);
+  }
 }
 
 function drawBird() {
