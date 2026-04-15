@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sky Bird - Responsive Flying Bird Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="game-card">
+      <header class="top-bar">
+        <h1>Sky Bird</h1>
+        <p>Tap, click, or press Space to fly</p>
+      </header>
+
+      <div class="hud">
+        <div class="score-group">
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="score-group">
+          <span>Best</span>
+          <strong id="bestScore">0</strong>
+        </div>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="480" height="900" aria-label="Flying bird game"></canvas>
+
+        <div id="startOverlay" class="overlay show">
+          <h2>Are you ready cutie to play</h2>
+          <p>Click Start to begin the game!</p>
+          <button id="startBtn" class="btn primary">Start Game</button>
+        </div>
+
+        <div id="gameOverOverlay" class="overlay">
+          <h2>Game Over</h2>
+          <p id="finalScoreText">Your score: 0</p>
+          <button id="restartBtn" class="btn">Play Again</button>
+        </div>
+      </div>
+
+      <footer class="controls">
+        <button id="musicToggle" class="btn small" aria-pressed="true">Music: On</button>
+        <button id="sfxToggle" class="btn small" aria-pressed="true">SFX: On</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
